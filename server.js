@@ -1,11 +1,11 @@
-const http = require("http");
+const express = require('express');
+const app = express();
+const port = process.env.PORT || 3000;
 
-const server = http.createServer((req, res) => {
-    res.writeHead(200, { "Content-Type": "text/plain" });
-    res.end("Hello from Node.js on Elastic Beanstalk!");
+app.get('/', (req, res) => {
+    res.send('Hello from Node.js on Elastic Beanstalk!');
 });
 
-const PORT = 3000;
-server.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
+app.listen(port, () => {
+    console.log(`Server is running on port ${port}`);
 });
